@@ -1,47 +1,58 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
   <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
     <title>托福口语1在线练习</title>
-	<link href="css/etsbootstrap.css" rel="stylesheet">
 
-	<style type="text/css">
-		.ets-nav{
-		    background-image: url("img/topPanel.png");
-		    background-size: 100%;
-		    height: 100px;
-		    border-style:solid;
-		    border-bottom-color: #F7F7F7;
-		border-bottom-style: ridge;
-		border-bottom-width: 5px;
-		}
-		 .ets-botton{
-		     border: 0;
-		     float: right;
-		     margin-right: 7px;
-		     margin-top: 2px;
-		     background: url("img/continue.gif");
-		     height: 40px;
-		     width: 74px;
-		 }
-		 .ets-title{
-		     font-size: 20px;
-		     color: white;
-		     margin-top: 60px;
-		     float: left;
-		     width: 200px;
-		 }
+    <!-- Bootstrap -->
+    <link href="css/etsbootstrap.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+     <style type="text/css">
+	    .ets-nav{
+            background-image: url("img/topPanel.png");
+            background-size: 100%;
+            height: 100px;
+            border-style:solid;
+            border-bottom-color: #F7F7F7;
+  			border-bottom-style: ridge;
+  			border-bottom-width: 5px;
+        }
+         .ets-botton{
+             border: 0;
+             float: right;
+             margin-right: 7px;
+             margin-top: 2px;
+             background: url("img/continue.gif");
+             height: 40px;
+             width: 74px;
+         }
+         .ets-title{
+             font-size: 20px;
+             color: white;
+             margin-top: 60px;
+             float: left;
+             width: 200px;
+         }
 		.infomation{
             margin-left: auto;
             margin-right: auto;
             margin-top: 50px;
             width: 50%;
-      		background-color: #f8f8f8;
+			background-color: #f8f8f8;
             border-style: solid;
             border-width: 0px;
             height: 300px;
             text-align:center;
-    	}
+		}
          .infomation img{
              width: 250px;
              height: 200px;
@@ -57,14 +68,15 @@
         </a>
     </nav>
     <div class="infomation">
-    <img class="title-img" src="img/headSetOn.jpg">
+		<img class="title-img" src="img/headSetOn.jpg">
         <p>出现 "使用您的麦克风" 时，请点击 "允许" ，然后点击右上角 "CONTINUE" 开始练习</p>
     </div>
 
 
-    <hr>
-
     <div class="container">
+      <h1><a href="https://github.com/higuma/mp3-lame-encoder-js">Mp3LameEncoder.js</a> demo</h1>
+      <p>Audio recording to MPEG-1 Audio Layer III (.mp3) test with Web Audio API</p>
+      <hr>
       <div class="form-horizontal">
         <div class="form-group">
           <label class="col-sm-3 control-label">Audio input</label>
@@ -131,10 +143,21 @@
       <h3>Recordings</h3>
       <div id="recording-list"></div>
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+
+
+
+
+
+
+
+
     <script>Mp3LameEncoderConfig = { memoryInitializerPrefixURL: "js/" };</script>
     <script src="js/Mp3LameEncoder.min.js"></script>
     <script src="js/EncoderDemo.js"></script>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
   </body>
 </html>
