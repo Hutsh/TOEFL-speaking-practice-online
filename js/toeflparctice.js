@@ -15,11 +15,24 @@ function printq() {
         document.write(localStorage.speakingq);
     else
         document.write("未输入题目！");
-    localStorage.removeItem("speakingq");
-    responsiveVoice.cancel();
+
 }
 
-function voice() {
-    var q = "Describe a book that you believe is the most useful to you. Please explain the reason and include specific examples and details in your explanation.";
-    responsiveVoice.speak(q, "US English Male");
+function readq() {
+    var readqu = localStorage.speakingq;
+    if(readqu){
+        sessionStorage.readq=readqu;
+        localStorage.removeItem("speakingq");
+    }
+    else
+        readqu = "You haven't input questions.";
+
+    responsiveVoice.speak(readqu, "US English Male");
+
 }
+
+function progressbar() {
+
+    alert("进度条");
+}
+
