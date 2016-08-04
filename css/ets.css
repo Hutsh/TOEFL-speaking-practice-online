@@ -1,0 +1,90 @@
+.ets-nav{
+    background-image: url("../img/topPanel.png");
+    background-size: 100%;
+    height: 100px;
+    border-style:solid;
+    border-bottom-color: #F7F7F7;
+    border-bottom-style: ridge;
+    border-bottom-width: 5px;
+}
+.ets-botton{
+    border: 0;
+    float: right;
+    margin-right: 7px;
+    margin-top: 2px;
+    background: url("../img/continue.gif");
+    height: 40px;
+    width: 74px;
+}
+.ets-title{
+    font-size: 20px;
+    color: white;
+    margin-top: 60px;
+    float: left;
+    width: 200px;
+}
+.infomation{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    width: 80%;
+    background-color: #f8f8f8;
+    border-style: solid;
+    border-width: 0px;
+    height: auto;
+    text-align:center;
+    padding-bottom: 30px;
+}
+.infomation img{
+    width: 250px;
+    height: 200px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+.qinput{
+    width: 80%;
+    margin-left: 10%;
+}
+
+
+/*recorders*/
+.testaudio{
+    margin-top: 40px;
+    text-align: center;
+}
+canvas {
+    background: #f8f8f8;
+}
+#controls {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    height: 20%;
+    width: 100%;
+}
+#record {
+    height: 15vh;
+}
+#record.recording {
+    background: red;
+    background: -webkit-radial-gradient(center, ellipse cover, #ff0000 0%,lightgrey 75%,lightgrey 100%,#7db9e8 100%);
+    background: -moz-radial-gradient(center, ellipse cover, #ff0000 0%,lightgrey 75%,lightgrey 100%,#7db9e8 100%);
+    background: radial-gradient(center, ellipse cover, #ff0000 0%,lightgrey 75%,lightgrey 100%,#7db9e8 100%);
+}
+#save, #save img { height: 10vh; }
+#save { opacity: 0.25;}
+#save[download] { opacity: 1;}
+#viz {
+    height: 100px;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+@media (orientation: landscape) {
+    body { flex-direction: row;}
+    #controls { flex-direction: column; height: 100%; width: 10%;}
+    #viz { height: 100%; width: 90%;}
+}
