@@ -5,6 +5,10 @@
     <title>托福口语1在线练习</title>
 	<link href="css/etsbootstrap.css" rel="stylesheet">
 
+    <script src="js/recorder/audiodisplay.js"></script>
+    <script src="js/recorder/recorder.js"></script>
+    <script src="js/recorder/main.js"></script>
+
 	<style type="text/css">
 		.ets-nav{
 		    background-image: url("img/topPanel.png");
@@ -15,7 +19,7 @@
 		border-bottom-style: ridge;
 		border-bottom-width: 5px;
 		}
-		 .ets-botton{
+		.ets-botton{
 		     border: 0;
 		     float: right;
 		     margin-right: 7px;
@@ -35,7 +39,7 @@
             margin-left: auto;
             margin-right: auto;
             margin-top: 50px;
-            width: 50%;
+            width: 400;
       		background-color: #f8f8f8;
             border-style: solid;
             border-width: 0px;
@@ -47,94 +51,71 @@
              height: 200px;
              margin-bottom: 40px;
          }
+
+
+
+/*recorders*/
+        .testaudio{
+            margin-top: 40px;
+            text-align: center;
+        }
+        canvas {
+            background: #f8f8f8;
+        }
+        #controls {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-around;
+            height: 20%;
+            width: 100%;
+        }
+        #record {
+            height: 15vh;
+        }
+        #record.recording {
+            background: red;
+            background: -webkit-radial-gradient(center, ellipse cover, #ff0000 0%,lightgrey 75%,lightgrey 100%,#7db9e8 100%);
+            background: -moz-radial-gradient(center, ellipse cover, #ff0000 0%,lightgrey 75%,lightgrey 100%,#7db9e8 100%);
+            background: radial-gradient(center, ellipse cover, #ff0000 0%,lightgrey 75%,lightgrey 100%,#7db9e8 100%);
+        }
+        #save, #save img { height: 10vh; }
+        #save { opacity: 0.25;}
+        #save[download] { opacity: 1;}
+        #viz {
+            height: 100px;
+            width: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+        }
+        @media (orientation: landscape) {
+            body { flex-direction: row;}
+            #controls { flex-direction: column; height: 100%; width: 10%;}
+            #viz { height: 100%; width: 90%;}
+        }
+
+         
     </style>
   </head>
   <body>
     <nav class="ets-nav">
         <div class="ets-title">托福口语在线练习</div>
-        <a href="main.html">
+        <a href="prepare.html">
             <button type="button" class="ets-botton"></button>
         </a>
     </nav>
     <div class="infomation">
     <img class="title-img" src="img/headSetOn.jpg">
-        <p>出现 "使用您的麦克风" 时，请点击 "允许" ，然后点击右上角 "CONTINUE" 开始练习</p>
+        <p>出现 "使用您的麦克风" 时，请点击 "允许" ，当下方出现波形时，说明麦克风功能正常。</p>
+        <p>准备好后，请点击右上角 "CONTINUE" 开始练习</p>
     </div>
 
-
-    <hr>
-
-    <div class="container">
-      <div class="form-horizontal">
-        <div class="form-group">
-          <label class="col-sm-3 control-label">Audio input</label>
-          <div class="col-sm-2">Test tone</div>
-          <div class="col-sm-3">
-            <input id="test-tone-level" type="range" min="0" max="100" value="0">
-          </div>
-        </div>
-        <div class="form-group">
-          <div class="col-sm-3"></div>
-          <div class="col-sm-2">
-            <input id="microphone" type="checkbox"> Microphone
-          </div>
-          <div class="col-sm-3">
-            <input id="microphone-level" type="range" min="0" max="100" value="0" class="hidden">
-          </div>
-        </div><br>
-        <div class="form-group">
-          <label class="col-sm-3 control-label">Encoding process</label>
-          <div class="col-sm-9">
-            <input type="radio" name="encoding-process" mode="separate" checked> Encode with worker after recording (safer)
-          </div>
-        </div>
-        <div class="form-group">
-          <div class="col-sm-3"></div>
-          <div class="col-sm-9">
-            <input type="radio" name="encoding-process" mode="background"> Encode with worker on recording background (intermediate)
-          </div>
-        </div>
-        <div class="form-group">
-          <div class="col-sm-3"></div>
-          <div class="col-sm-9">
-            <input type="radio" name="encoding-process" mode="direct"> Encode on recoring directly without worker (risky)
-          </div>
-        </div><br>
-        <div class="form-group">
-          <label class="col-sm-3 control-label">Recording buffer size</label>
-          <div class="col-sm-2">
-            <input id="buffer-size" type="range" min="0" max="6">
-          </div>
-          <div id="buffer-size-text" class="col-sm-7"></div>
-        </div>
-        <div class="form-group">
-          <div class="col-sm-3"></div>
-          <div class="col-sm-9 text-warning"><strong>Warning: </strong><span>setting size below browser default may fail recording.</span></div>
-        </div><br>
-        <div class="form-group">
-          <label class="col-sm-3 control-label">MP3 bit rate</label>
-          <div class="col-sm-2">
-            <input id="bit-rate" type="range" min="0" max="9" value="5">
-          </div>
-          <div id="bit-rate-text" class="col-sm-7">160kbps</div>
-        </div><br>
-        <div class="form-group">
-          <div class="col-sm-3 control-label"><span id="recording" class="text-danger hidden"><strong>RECORDING</strong></span>&nbsp; <span id="time-display">00:00</span></div>
-          <div class="col-sm-3">
-            <button id="record" class="btn btn-danger">RECORD</button>
-            <button id="cancel" class="btn btn-default hidden">CANCEL</button>
-          </div>
-          <div class="col-sm-6"><span id="date-time" class="text-info"></span></div>
-        </div>
-      </div>
-      <hr>
-      <h3>Recordings</h3>
-      <div id="recording-list"></div>
+    <div class="testaudio">
+        <canvas id="analyser"></canvas>
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-    <script>Mp3LameEncoderConfig = { memoryInitializerPrefixURL: "js/" };</script>
-    <script src="js/Mp3LameEncoder.min.js"></script>
-    <script src="js/EncoderDemo.js"></script>
+
   </body>
+
 </html>
