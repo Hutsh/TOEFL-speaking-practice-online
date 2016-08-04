@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/responsivevoice.src.js"></script>
+    <script src="js/jquery.min.js"></script>
+</head>
+<body onload="">
+
+<h1>Hello World! </h1>
+<h3>This is a test of TTS</h3>
+<input onclick="voice()" type="button" value="Play" />
+<script>
+    function voice() {
+        responsiveVoice.speak('Hello World','UK English Female',{onstart:start,onend:end});
+    }
+    function start(){
+        console.log("start");
+    }
+    function end() {
+        console.log("end");
+    }
+
+</script>
+
+</body>
+</html>

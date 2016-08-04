@@ -7,6 +7,7 @@ function qstorage(){
     localStorage.removeItem("speakingq");
     localStorage.speakingq = question;
     responsiveVoice.speak(question, "US English Male");
+
 }
 
 function printq() {
@@ -27,16 +28,37 @@ function readq() {
     else
         readqu = "You haven't input questions.";
 
+	
+	responsiveVoice.speak(readqu, "US English Male", {onstart:start,onend:end});
+	
+}
 
-    responsiveVoice.speak(readqu, "US English Male", {onstart:test(),onend:progressbar()});
+
+
+function change(){
+    var q = document.getElementById('question').value;
+
+    var pre = document.getElementById('prepare');
+    pre.style.display="none";
+
+    var question = document.getElementById('showq');
+    question.style.display="block";
+
+    if(q)
+        question.innerHTML=q;
+    else
+        question.innerHTML="未输入题目，请刷新重新开始"
+
+    voice(q);
 
 }
 
-function progressbar() {
-
-    alert("进度条");
-}
-function test() {
-
+function voice(text) {
+    responsiveVoice.speak(text,'UK English Female',{onend:end});
 }
 
+function end() {
+    console.log("end");
+    var prepaudio = document.getElementById("speaking_prep");
+
+}
