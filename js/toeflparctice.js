@@ -27,12 +27,16 @@ function readq() {
     else
         readqu = "You haven't input questions.";
 
-    responsiveVoice.speak(readqu, "US English Male");
+
+    responsiveVoice.speak(readqu, "US English Male", {onstart:test(),onend:progressbar()});
 
 }
 
 function progressbar() {
 
     alert("进度条");
+}
+function test() {
+
 }
 
