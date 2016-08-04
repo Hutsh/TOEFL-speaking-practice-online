@@ -47,7 +47,7 @@ function change(){
     if(q)
         question.innerHTML=q;
     else
-        question.innerHTML="未输入题目，请刷新重新开始"
+        question.innerHTML="未输入题目，请刷新重新开始";
 
     voice(q);
 
@@ -59,6 +59,6 @@ function voice(text) {
 
 function end() {
     console.log("end");
-    var prepaudio = document.getElementById("speaking_prep");
-
+    var pa = document.getElementById('prepaudio');
+    pa.play();
 }

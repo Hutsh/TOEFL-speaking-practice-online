@@ -10,16 +10,15 @@
 
 <h1>Hello World! </h1>
 <h3>This is a test of TTS</h3>
-<input onclick="voice()" type="button" value="Play" />
+<audio id="auu">
+    <source src="sound/speaking_prepare.mp3" type="audio/mpeg"  id="prep-audio">
+    Your browser does not support the audio tag.
+</audio>
+<button onclick="test()">button</button>
 <script>
-    function voice() {
-        responsiveVoice.speak('Hello World','UK English Female',{onstart:start,onend:end});
-    }
-    function start(){
-        console.log("start");
-    }
-    function end() {
-        console.log("end");
+    function test() {
+        var a=document.getElementById('auu');
+        a.play();
     }
 
 </script>
