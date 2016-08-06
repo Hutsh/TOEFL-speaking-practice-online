@@ -42,6 +42,7 @@ function change(){
     pre.style.display="none";
 
     var question = document.getElementById('showq');
+    var question = document.getElementById('showq');
     question.style.display="block";
 
     if(q)
@@ -54,11 +55,21 @@ function change(){
 }
 
 function voice(text) {
-    responsiveVoice.speak(text,'UK English Female',{onend:end});
+    responsiveVoice.speak(text,'US English Male',{onend:end});
 }
 
 function end() {
     console.log("end");
     var pa = document.getElementById('prepaudio');
+    var beepa = document.getElementById('beepaudio');
     pa.play();
+    pa.onended = function () {
+        beepa.play();
+    }
+    beepa.onended = function () {
+        console.log("开始15");
+        count15();
+    }
+
 }
+

@@ -3,25 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <script src="js/responsivevoice.src.js"></script>
     <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <link href="css/etsbootstrap.css" rel="stylesheet">
+    <script src="js/toeflparctice.js"></script>
+
+    <style type="text/css">
+        .six-sec-ease-in-out {
+            -webkit-transition: width 6s ease-in-out;
+            -moz-transition: width 6s ease-in-out;
+            -ms-transition: width 6s ease-in-out;
+            -o-transition: width 6s ease-in-out;
+            transition: width 6s ease-in-out;
+        }
+    </style>
 </head>
-<body onload="">
+<body>
 
 <h1>Hello World! </h1>
-<h3>This is a test of TTS</h3>
-<audio id="auu">
-    <source src="sound/speaking_prepare.mp3" type="audio/mpeg"  id="prep-audio">
-    Your browser does not support the audio tag.
-</audio>
-<button onclick="test()">button</button>
-<script>
-    function test() {
-        var a=document.getElementById('auu');
-        a.play();
-    }
 
+<div class="progress">
+    <div class="progress-bar six-sec-ease-in-out" role="progressbar" data-transitiongoal="20"></div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('.progress .progress-bar').progressbar({display_text: 'fill', use_percentage: false});
+    });
 </script>
+
+
+
 
 </body>
 </html>

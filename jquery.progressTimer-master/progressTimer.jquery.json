@@ -1,0 +1,33 @@
+{
+  "name": "progressTimer",
+  "title": "progressTimer",
+  "description": "Simple jQuery plugin for using a Bootstrap progress bar as the visual representation for a timer.",
+  "keywords": ["timer","progressbar"],
+  "version": "1.0.1",
+  "author": {
+    "name":   "Nathan Honeycutt",
+    "email":  "nlhoneycutt@gmail.com",
+    "url":    "http://www.nathanhoneycutt.net"
+  },
+  "maintainers": [
+    {
+      "name":   "Nathan Honeycut",
+      "email":  "nlhoneycutt@gmail.com",
+      "url":    "http://www.nathanhoneycutt.net"
+    }
+  ],
+  "licenses": [
+    {
+      "type":  "MIT",
+      "url":   "http://opensource.org/licenses/MIT"
+    }
+  ],
+  "bugs":     "http://cahnory.github.com/jQuery.flexput/",
+  "homepage": "http://cahnory.github.com/jQuery.flexput/",
+  "docs":     "http://cahnory.github.com/jQuery.flexput/",
+  "download": "http://cahnory.github.com/jQuery.flexput/",
+  "dependencies": {
+    "jquery":   ">=2",
+	"bootstrap": ">=3"
+  }
+}

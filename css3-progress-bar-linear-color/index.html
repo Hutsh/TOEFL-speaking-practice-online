@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>超炫酷的CSS3进度条动画DEMO演示</title>
+	<script src="js/modernizr.js" type="text/javascript"></script>
+	<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+	<link rel="stylesheet" type="text/css" href="css/default.css">
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
+	<!--[if IE]>
+		<script src="http://libs.useso.com/js/html5shiv/3.7/html5shiv.min.js"></script>
+	<![endif]-->
+</head>
+<body>
+	<div class="htmleaf-container">
+		<header class="htmleaf-header">
+			<h1>超炫酷的CSS3进度条动画 背景色渐变</h1>
+		</header>
+		<div style="text-align:center;clear:both;">
+			<script src="/gg_bd_ad_720x90.js" type="text/javascript"></script>
+			<script src="/follow.js" type="text/javascript"></script>
+		</div>
+		<div class="htmleaf-content">
+			<div class="progress">
+			  <b class="progress__bar">
+			    <span class="progress__text">
+			      Progress: <em>0%</em>
+			    </span>
+			  </b>
+			</div>
+		</div>
+		<div style="text-align:center;clear:both;margin-top:80px">
+			<script src="/gg_bd_ad_720x90-2.js" type="text/javascript"></script>
+		</div>
+	</div>
+	<script src='js/stopExecutionOnTimeout.js?t=1'></script>
+	<script src="http://libs.useso.com/js/jquery/2.1.1/jquery.min.js" type="text/javascript"></script>
+	<script>window.jQuery || document.write('<script src="js/jquery-2.1.1.min.js"><\/script>')</script>
+	<script>
+	var $progress = $('.progress'), $bar = $('.progress__bar'), $text = $('.progress__text'), percent = 0, update, resetColors, speed = 200, orange = 30, yellow = 55, green = 85, timer;
+	resetColors = function () {
+	    $bar.removeClass('progress__bar--green').removeClass('progress__bar--yellow').removeClass('progress__bar--orange').removeClass('progress__bar--blue');
+	    $progress.removeClass('progress--complete');
+	};
+	update = function () {
+	    timer = setTimeout(function () {
+	        percent += Math.random() * 1.8;
+	        percent = parseFloat(percent.toFixed(1));
+	        $text.find('em').text(percent + '%');
+	        if (percent >= 100) {
+	            percent = 100;
+	            $progress.addClass('progress--complete');
+	            $bar.addClass('progress__bar--blue');
+	            $text.find('em').text('Complete');
+	        } else {
+	            if (percent >= green) {
+	                $bar.addClass('progress__bar--green');
+	            } else if (percent >= yellow) {
+	                $bar.addClass('progress__bar--yellow');
+	            } else if (percent >= orange) {
+	                $bar.addClass('progress__bar--orange');
+	            }
+	            speed = Math.floor(Math.random() * 900);
+	            update();
+	        }
+	        $bar.css({ width: percent + '%' });
+	    }, speed);
+	};
+	setTimeout(function () {
+	    $progress.addClass('progress--active');
+	    update();
+	}, 1000);
+	$(document).on('click', function (e) {
+	    percent = 0;
+	    clearTimeout(timer);
+	    resetColors();
+	    update();
+	});
+	</script>
+</body>
+</html>
