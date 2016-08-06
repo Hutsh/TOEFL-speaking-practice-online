@@ -110,8 +110,7 @@ function record45() {
     console.log("recoding");
     var button = document.getElementById("record");
     toggleRecording(button);
-    setTimeout(function(){toggleRecording(button); },45000);//ying45000
-    showsave();
+    setTimeout(function(){toggleRecording(button); showsave();},45000);//ying45000
 }
 
 function showsave() {
@@ -119,4 +118,6 @@ function showsave() {
     ana.style.display="inline-block";
     var saveimg = document.getElementById("save");
     saveimg.style.display="block";
+    var info = "This is the and of the practice, you can download your answer by clicking the button bellow. Thanks for using.";
+    responsiveVoice.speak(info, "US English Male");
 }
