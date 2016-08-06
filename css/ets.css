@@ -46,6 +46,24 @@
     margin-left: 10%;
 }
 
+.ease-fifteen {
+    -webkit-transition: width 15s linear;
+    -moz-transition: width 15s linear;
+    -ms-transition: width 15s linear;
+    -o-transition: width 15s linear;
+    transition: width 15s linear;
+}
+
+.ease-45{
+    -webkit-transition: width 45s linear;
+    -moz-transition: width 45s linear;
+    -ms-transition: width 45s linear;
+    -o-transition: width 45s linear;
+    transition: width 45s linear;
+}
+.barframe{
+    padding: 30px 100px 30px 100px;
+}
 
 /*recorders*/
 .testaudio{

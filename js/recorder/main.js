@@ -52,6 +52,7 @@ function doneEncoding( blob ) {
     recIndex++;
 }
 
+
 function toggleRecording( e ) {
     if (e.classList.contains("recording")) {
         // stop recording

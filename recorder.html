@@ -31,6 +31,12 @@
 
 <div class="testaudio">
   <canvas id="analyser"></canvas>
+  <canvas id="wavedisplay" style="text-align: center"></canvas>
+</div>
+<div id="controls">
+  <button id="record" onclick="toggleRecording(this); console.log(this)"></button>
+  <a id="save" href="#">save</a>
+  <p id="recordflag" class="recording"></p>
 </div>
 
 </body>

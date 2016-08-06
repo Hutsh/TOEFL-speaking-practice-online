@@ -16,7 +16,6 @@ function printq() {
         document.write(localStorage.speakingq);
     else
         document.write("未输入题目！");
-
 }
 
 function readq() {
@@ -73,3 +72,51 @@ function end() {
 
 }
 
+function count15() {
+    var bar = document.getElementById("timer15");
+    bar.style.display="block";
+    setTimeout(function(){
+        var progressbar15 = document.getElementById("timer15-bar");
+        progressbar15.style.width="100%";
+    },100);
+
+    setTimeout("count45();",15000);//!!!!!!!!!!!应该15000
+}
+
+function count45() {
+    var spa = document.getElementById('speakaudio');
+    var beepa = document.getElementById('beepaudio');
+    spa.play();
+    spa.onended = function () {
+        beepa.play();
+    }
+    beepa.onended = function () {
+
+        console.log("开始45");
+        record45();
+    }
+}
+
+function record45() {
+    var bar15 = document.getElementById("timer15");
+    bar15.style.display="none";
+    var bar = document.getElementById("timer45");
+    bar.style.display="block";
+    setTimeout(function(){
+        var pbar45 = document.getElementById("timer45-bar");
+        pbar45.style.width="100%";
+    },100);
+
+    console.log("recoding");
+    var button = document.getElementById("record");
+    toggleRecording(button);
+    setTimeout(function(){toggleRecording(button); },45000);//ying45000
+    showsave();
+}
+
+function showsave() {
+    var ana = document.getElementById("wavedisplay");
+    ana.style.display="inline-block";
+    var saveimg = document.getElementById("save");
+    saveimg.style.display="block";
+}

@@ -9,6 +9,9 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/toeflparctice.js"></script>
     <script src="js/responsivevoice.js"></script>
+    <script src="js/recorder/audiodisplay.js"></script>
+    <script src="js/recorder/recorder.js"></script>
+    <script src="js/recorder/main.js"></script>
     <audio id="prepaudio"><source src="sound/speaking_prepare.mp3" type="audio/mpeg">Your browser does not support the audio tag.</audio>
     <audio id="beepaudio"><source src="sound/beep.mp3" type="audio/mpeg">Your browser does not support the audio tag.</audio>
     <audio id="speakaudio"><source src="sound/speaking_speak.mp3" type="audio/mpeg">Your browser does not support the audio tag.</audio>
@@ -33,13 +36,32 @@
         </div>
     </div>
 
-    <div id="progressTimer15"></div>
+    <div id="showq" style="display: none"></div>
 
-    <div id="showq" style="display: none">
-
+    <div class="barframe">
+        <div id="timer15" class="progress" style="display: none">
+            <div class="progress-bar ease-fifteen" id="timer15-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
+            </div>
+        </div>
+        <div id="timer45" class="progress" style="display: none">
+            <div class="progress-bar ease-45" id="timer45-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>
+        </div>
     </div>
+
+    <div>
+        <canvas id="wavedisplay" style="display: none"></canvas>
+    </div>
+    <div>
+        <a id="save" href="#" style="display: none"><img src="img/save.svg"></a>
+    </div>
+
 </div>
 
+<div class="testaudio">
+    <div id="controls">
+        <button id="record" onclick="toggleRecording(this);" style="display: none"></button>
+    </div>
+</div>
 
 
 
