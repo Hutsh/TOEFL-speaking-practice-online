@@ -25,11 +25,22 @@
 <div class="progress">
     <div class="progress-bar six-sec-ease-in-out" role="progressbar" data-transitiongoal="20"></div>
 </div>
+<div id="showtimes">
+
+</div>
 
 <script type="text/javascript">
-    $(document).ready(function() {
-        $('.progress .progress-bar').progressbar({display_text: 'fill', use_percentage: false});
-    });
+    var t = 10;
+    function showTime(){
+        t -= 1;
+        document.getElementById('showtimes').innerHTML= t;
+        if(t==0){
+            location.href='error404.asp';
+        }
+        setTimeout("showTime()",1000);
+    }
+    //执行showTime()
+    showTime();
 </script>
 
 

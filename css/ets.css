@@ -62,7 +62,11 @@
     transition: width 45s linear;
 }
 .barframe{
-    padding: 30px 100px 30px 100px;
+    padding: 5px 100px 30px 100px;
+}
+#time-count{
+    padding-top: 30px;
+    font-weight: bold;
 }
 
 /*recorders*/
