@@ -36,10 +36,10 @@ function readq() {
 
 function change(){
     var q = document.getElementById('question').value;
-
     var pre = document.getElementById('prepare');
+    var con = document.getElementById('continue-button');
     pre.style.display="none";
-
+    con.style.display="none";
     var question = document.getElementById('showq');
     var question = document.getElementById('showq');
     question.style.display="block";
